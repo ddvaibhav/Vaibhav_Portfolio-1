@@ -1,0 +1,59 @@
+[
+
+  {
+    "name": "Portfolio",
+    "desc": "Full-Stack Using To make responsive portfolio webpage of me vaibhav daspute",
+    "image": "VAIBHAV12",
+    "category": "FULLSTACK",
+    "links": {
+      "view": "https://vaibhav-portfolio-xc93.onrender.com/"
+    
+    }
+  },
+  {
+    "name": "Dancing-creponne",
+    "desc": "here elegance moves in rhythm — Dancing Creponne, a blend of art, grace, and timeless beauty.",
+    "image": "adob",
+    "category": "FRONTEND",
+    "links": {
+      "view": "https://dancing-creponne-web.netlify.app/"
+      
+    }
+  },
+  {
+    "name": "Masala Webpage",
+    "desc": "An interactive masala marketplace — explore, customize and order freshly blended spices with real-time cart, secure checkout, and admin inventory control.",
+    "image": "masale",
+    "category": "FRONTEND",
+    "links": {
+      "view": "----"
+    }
+  },
+  {
+    "name": "Jiomart",
+    "desc": "Full-Stack Using To make Eccomerce website of jiomart",
+    "image": "jiomart",
+    "category": "FRONTEND",
+    "links": {
+      "view": "https://instagramernstack.herokuapp.com/"
+    }
+  },
+  {
+    "name": "Transport",
+    "desc": "A smart transport management platform designed to streamline vehicle tracking, route planning, and booking with real-time status updates and admin control.",
+    "image": "transport",
+    "category": "FULLSTACK",
+    "links": {
+      "view": "https://enchanting-raindrop-bfbf91.netlify.app/"
+    }
+  },
+  {
+    "name": "Mat-Website",
+    "desc": "A modern matrimony platform that helps users create detailed profiles, find compatible matches, and connect securely through an intuitive and responsive interface",
+    "image": "mat_website",
+    "category": "FULLSTACK",
+    "links": {
+      "view": "https://resumegenx.netlify.app/"
+    }
+  }
+]
