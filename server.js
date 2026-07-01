@@ -27,7 +27,7 @@ app.post("/sendmail", async (req, res) => {
     console.log("📤 Sending email via Resend...");
     const data = await resend.emails.send({
       from: "onboarding@resend.dev", // default verified sender
-      to: "vaibhavdaspute775@gmail.com", // receiver email
+      to: "vaibhavdaspute12@gmail.com", // receiver email
       subject: "Portfolio Inquiry - Vaibhav Daspute",
       text: `
 Name: ${name}
