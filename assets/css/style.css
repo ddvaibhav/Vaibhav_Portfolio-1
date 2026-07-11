@@ -1435,3 +1435,15 @@ form .button-area {
     hsl(0 100% 100% / 1), transparent 100%
   );
 }
+/* ===== Glow Background for Hero Section ===== */
+.home {
+  position: relative;
+  overflow: hidden;
+  --hue: 260;
+  background-image: radial-gradient(
+    600px circle at
+    var(--x, 50%) var(--y, 50%),
+    hsl(var(--hue) 100% 60% / 0.15), transparent 70%
+  );
+  transition: background 0.1s ease;
+}

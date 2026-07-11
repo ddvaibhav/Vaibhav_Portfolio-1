@@ -70,6 +70,65 @@
       color: #22d3ee;
       font-weight: 600;
     }
+
+    /* ===== Glow Card Effect for Projects ===== */
+    .work .box.tilt {
+      position: relative;
+      --base: 260;
+      --spread: 260;
+      --radius: 14;
+      --border: 3;
+      --backdrop: hsl(0 0% 60% / 0.12);
+      --backup-border: var(--backdrop);
+      --size: 200;
+      --outer: 1;
+      --border-size: calc(var(--border) * 1px);
+      --spotlight-size: calc(var(--size) * 1px);
+      --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+      background-image: radial-gradient(var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+          hsl(var(--hue, 210) 100% 70% / var(--bg-spot-opacity, 0.15)), transparent);
+      border: var(--border-size) solid var(--backup-border);
+      border-radius: calc(var(--radius) * 1px);
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    .work .box.tilt::before,
+    .work .box.tilt::after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      inset: calc(var(--border-size) * -1);
+      border: var(--border-size) solid transparent;
+      border-radius: calc(var(--radius) * 1px);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+      mask-clip: padding-box, border-box;
+      mask-composite: intersect;
+    }
+
+    .work .box.tilt::before {
+      background-image: radial-gradient(calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+          hsl(var(--hue, 210) 100% 50% / 1), transparent 100%);
+      filter: brightness(2);
+    }
+
+    .work .box.tilt::after {
+      background-image: radial-gradient(calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+          hsl(0 100% 100% / 1), transparent 100%);
+    }
+
+    /* ===== Glow Background for Hero Section ===== */
+    .home {
+      position: relative;
+      overflow: hidden;
+      --hue: 260;
+      background-image: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%),
+          hsl(var(--hue) 100% 60% / 0.15), transparent 70%);
+      transition: background 0.1s ease;
+    }
   </style>
 </head>
 
@@ -418,14 +477,31 @@
         statusBox.innerHTML = "❌ Server Error. Try again later.";
       }
     });
+  </script>
+
+  <!-- ✅ Glow Effects: Projects cards + Hero background -->
+  <script>
+    const heroSection = document.getElementById('home');
+
     document.addEventListener('pointermove', (e) => {
       const { clientX: x, clientY: y } = e;
+
+      // Projects cards glow (pixel-based, fixed to viewport)
       document.querySelectorAll('.work .box.tilt').forEach(card => {
         card.style.setProperty('--x', x.toFixed(2));
         card.style.setProperty('--xp', (x / window.innerWidth).toFixed(2));
         card.style.setProperty('--y', y.toFixed(2));
         card.style.setProperty('--yp', (y / window.innerHeight).toFixed(2));
       });
+
+      // Hero section glow background (percentage, relative to section)
+      if (heroSection) {
+        const rect = heroSection.getBoundingClientRect();
+        const hx = ((x - rect.left) / rect.width) * 100;
+        const hy = ((y - rect.top) / rect.height) * 100;
+        heroSection.style.setProperty('--x', `${hx}%`);
+        heroSection.style.setProperty('--y', `${hy}%`);
+      }
     });
   </script>
 
