@@ -250,15 +250,17 @@ header .navbar ul li a:hover {
   z-index: 1;
 }
 .home .image img {
-  width: 32rem;
-  height: 32rem;
-  object-fit: cover;
-  object-position: top center;
-  margin-left: 6rem;
+  width: 38rem;
+  height: 38rem;
+  object-fit: contain;
+  object-position: center;
+  margin-left: 0;
   border-radius: 50%;
   box-shadow: 0 8px 24px var(--shadow-color);
   cursor: pointer;
   border: 4px solid var(--surface-light);
+  box-sizing: border-box;
+  max-width: 90vw;
 }
 .home .image img:hover {
   box-shadow: 0 12px 32px rgba(79, 70, 229, 0.4);
@@ -1441,7 +1443,7 @@ form .button-area {
   overflow: hidden;
   --hue: 260;
   background-image: radial-gradient(
-    600px circle at
+    800px circle at
     var(--x, 50%) var(--y, 50%),
     hsl(var(--hue) 100% 60% / 0.15), transparent 70%
   );
